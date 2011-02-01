@@ -267,11 +267,11 @@ killhard() {
 
 
 
-alias sshr="ssh -X redsky"
-alias sf1="ssh -X foster1" 
-alias sf2="ssh -X foster2" 
-alias sf4="ssh -X foster4" 
-alias sshh="ssh -X john@johnandlisa.homeip.net"
+alias sshr="ssh -Y redsky"
+alias sf1="ssh -Y foster1" 
+alias sf2="ssh -Y foster2" 
+alias sf4="ssh -Y foster4" 
+alias sshh="ssh -Y john@johnandlisa.homeip.net"
 alias showall="defaults write com.apple.finder AppleShowAllFiles TRUE"
 alias shownone="defaults write com.apple.finder AppleShowAllFiles FALSE"
 alias gnuplot="open -a AquaTerm && gnuplot"
