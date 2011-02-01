@@ -5,4 +5,4 @@ Installation:
 Create symlinks:
 
     ln -s ~/.dotfiles/bash_profile ~/.bash_profile
-    ln -s ~/.dotfiles/bashrc ~/.bash_profile
+    ln -s ~/.dotfiles/bashrc ~/.bashrc
