@@ -35,8 +35,8 @@ fi
 
 # Path ------------------------------------------------------------
 if [ "$OS" = "darwin" ] ; then
-  export PATH=/opt/local/bin:/opt/local/sbin:$PATH  # OS-X Specific, with MacPorts and MySQL installed
   export PATH=/usr/local/bin:$PATH  
+  export PATH=/opt/local/bin:/opt/local/sbin:$PATH  # OS-X Specific, with MacPorts and MySQL installed
   export PATH="/usr/texbin:$PATH"
 fi
 
