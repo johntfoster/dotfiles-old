@@ -9,28 +9,8 @@ export PLATFORM="$MACHINE-$OS-$OSVERSION"
 
 
 # Machine Specific Environment ------------------------------------
-if [ "$(hostname)" == "foster1.srn.sandia.gov" ]; then
-	export http_proxy="http://wwwproxy.sandia.gov:80"
-	export HTTP_PROXY="http://wwwproxy.sandia.gov:80"
-	export HTTPS_PROXY="https://wwwproxy.sandia.gov:80"
-	export FTP_PROXY="ftp://wwwproxy.sandia.gov:80"
-	export RSYNC_PROXY="wwwproxy.sandia.gov:80"
-	export RSHCOMMAND=ssh
-elif [ "$(hostname)" == "foster2.srn.sandia.gov" ]; then
-	export http_proxy="http://wwwproxy.sandia.gov:80"
-	export HTTP_PROXY="http://wwwproxy.sandia.gov:80"
-	export HTTPS_PROXY="https://wwwproxy.sandia.gov:80"
-	export FTP_PROXY="ftp://wwwproxy.sandia.gov:80"
-	export RSYNC_PROXY="wwwproxy.sandia.gov:80"
-	export RSHCOMMAND=ssh
-	export PATH="~/.unison:$PATH"
-elif [ "$(hostname)" == "foster4.srn.sandia.gov" ]; then
-	export http_proxy="http://wwwproxy.sandia.gov:80"
-	export HTTP_PROXY="http://wwwproxy.sandia.gov:80"
-	export HTTPS_PROXY="https://wwwproxy.sandia.gov:80"
-	export FTP_PROXY="ftp://wwwproxy.sandia.gov:80"
-	export RSYNC_PROXY="wwwproxy.sandia.gov:80"
-	export RSHCOMMAND=ssh
+if [ "$(hostname)" == "lagrange.local" ]; then
+    export PYTHONPATH="/usr/local/vtk/lib/python2.7/site-packages/"
 fi
 
 # Path ------------------------------------------------------------

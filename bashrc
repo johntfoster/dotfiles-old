@@ -143,6 +143,8 @@ fi
 # Navigation -------------------------------------------------------
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
+alias cdw='cd ~/Documents/ME4603/Website'
+alias sshs='ssh -p 1209 -Y fes788@shamu.coe.utsa.edu'
 cl() { cd $1; ls -la; } 
 
 # I got the following from, and mod'd it: http://www.macosxhints.com/article.php?story=20020716005123797
@@ -173,6 +175,7 @@ alias mvim='/Applications/MacPorts/MacVim.app/Contents/MacOS/vim -g'
 if [ "$OS" = "darwin" ] ; then
   alias v=mvim
   alias vc=vim
+  alias vi=vim
   alias vt='mvim --remote-tab'
 else
   alias v=vim
@@ -267,10 +270,6 @@ killhard() {
 
 
 
-alias sshr="ssh -Y redsky"
-alias sf1="ssh -Y foster1" 
-alias sf2="ssh -Y foster2" 
-alias sf4="ssh -Y foster4" 
 alias sshh="ssh -Y john@johnandlisa.homeip.net"
 alias showall="defaults write com.apple.finder AppleShowAllFiles TRUE"
 alias shownone="defaults write com.apple.finder AppleShowAllFiles FALSE"
