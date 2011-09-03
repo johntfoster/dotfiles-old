@@ -10,7 +10,8 @@ else
   export IS_REMOTE=true
 fi
 
-
+# Vim-like command line
+set -o vi
 
 # Colors ----------------------------------------------------------
 export TERM=xterm-color
@@ -85,6 +86,9 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
   fi
   if [ -f /opt/local/etc/bash_completion ]; then
     . /opt/local/etc/bash_completion
+  fi
+  if [ -f ~/etc/bash_completion ]; then
+    . ~/etc/bash_completion
   fi
 
   # git completion
