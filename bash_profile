@@ -12,6 +12,12 @@ export PLATFORM="$MACHINE-$OS-$OSVERSION"
 if [ "$(hostname)" == "lagrange.local" ]; then
     export PYTHONPATH="/usr/local/vtk/lib/python2.7/site-packages/"
 fi
+if [ "$(hostname)" == "shamu.coe.utsa.edu" ]; then
+    export PATH=~/projects/python2.7/bin:$PATH  
+    export PATH=~/projects/perl5.14.1/bin:$PATH  
+    export PATH=~/projects/ruby1.9.2/bin:$PATH  
+    export MODULEPATH=/share/apps/Modules/3.2.6/modulefiles
+fi
 
 # Path ------------------------------------------------------------
 if [ "$OS" = "darwin" ] ; then
@@ -20,11 +26,8 @@ if [ "$OS" = "darwin" ] ; then
   export PATH="/usr/texbin:$PATH"
 fi
 
-if [ "$OS" = "linux" ] ; then
-  export PATH=~/projects/python2.7/bin:$PATH  
-  export PATH=~/projects/perl5.14.1/bin:$PATH  
-  export PATH=~/projects/ruby1.9.2/bin:$PATH  
-fi
+#if [ "$OS" = "linux" ] ; then
+#fi
 
 if [ -d ~/bin ]; then
 	export PATH=~/bin:$PATH  # add your bin folder to the path, if you have it.  It's a good place to add all your scripts

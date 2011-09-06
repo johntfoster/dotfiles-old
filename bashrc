@@ -183,6 +183,8 @@ if [ "$OS" = "darwin" ] ; then
   alias vt='mvim --remote-tab'
 else
   alias v=vim
+  alias vi=vim
+  alias mvim=gvim
 fi
 
 
