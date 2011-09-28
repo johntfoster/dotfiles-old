@@ -147,7 +147,7 @@ fi
 # Navigation -------------------------------------------------------
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
-alias cdw='cd ~/Documents/ME4603/Website'
+alias cdweb='cd ~/Documents/ME4603/Website'
 alias sshs='ssh -p 1209 -Y fes788@shamu.coe.utsa.edu'
 alias sshr='ssh -Y jtfoster@login4.ranger.tacc.utexas.edu'
 cl() { cd $1; ls -la; } 
