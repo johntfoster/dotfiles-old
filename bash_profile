@@ -18,6 +18,9 @@ if [ "$(hostname)" == "shamu.coe.utsa.edu" ]; then
     export PATH=~/projects/ruby1.9.2/bin:$PATH  
     export MODULEPATH=/share/apps/Modules/3.2.6/modulefiles
 fi
+if [ "$(hostname)" == "login4.ranger.tacc.utexas.edu" ]; then
+    export PATH=~/projects/emu2.6.42/bin:$PATH  
+fi
 
 # Path ------------------------------------------------------------
 if [ "$OS" = "darwin" ] ; then
