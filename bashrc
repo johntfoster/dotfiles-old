@@ -90,6 +90,9 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
   if [ -f ~/etc/bash_completion ]; then
     . ~/etc/bash_completion
   fi
+  if [ -f $JOHN/etc/bash_completion ]; then
+    . $JOHN/etc/bash_completion
+  fi
 
   # git completion
   #source ~/cl/bin/git-completion.bash

@@ -19,7 +19,10 @@ if [ "$(hostname)" == "shamu.coe.utsa.edu" ]; then
     export MODULEPATH=/share/apps/Modules/3.2.6/modulefiles
 fi
 if [ "$(hostname)" == "login4.ranger.tacc.utexas.edu" ]; then
+    module load python
     export PATH=~/projects/emu2.6.42/bin:$PATH  
+    export JOHN=/home/01809/jtfoster
+    export PATH=$JOHN/bin:$PATH
 fi
 
 # Path ------------------------------------------------------------
