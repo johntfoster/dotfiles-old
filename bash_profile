@@ -19,9 +19,14 @@ if [ "$(hostname)" == "shamu.coe.utsa.edu" ]; then
     export MODULEPATH=/share/apps/Modules/3.2.6/modulefiles
 fi
 if [ "$(hostname)" == "login4.ranger.tacc.utexas.edu" ]; then
-    module load python
+    export PATH=~/projects/peridigm/intel/depends/python-2.7.2/bin:$PATH
+    export LD_LIBRARY_PATH=~/projects/peridigm/intel/depends/python-2.7.2/lib:$LD_LIBRARY_PATH
+    export DYLD_LIBRARY_PATH=~/projects/peridigm/intel/depends/python-2.7.2/lib:$DYLD_LIBRARY_PATH
+    export PATH=~/projects/peridigm/intel/:$PATH
     export PATH=~/projects/emu2.6.42/bin:$PATH  
     export JOHN=/share/home/01809/jtfoster
+    export DAVE_HOME=/share/home/01839/djlittl
+    export DAVE_WORK=/work/01839/djlittl
     export PATH=$JOHN/bin:$PATH
 fi
 
