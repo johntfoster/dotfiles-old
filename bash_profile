@@ -40,6 +40,10 @@ if [ "$OS" = "darwin" ] ; then
   export PATH=/usr/local/bin:$PATH  
   export PATH=/opt/local/bin:/opt/local/sbin:$PATH  # OS-X Specific, with MacPorts and MySQL installed
   export PATH="/usr/texbin:$PATH"
+  export PATH=/usr/local/trilinos/bin:$PATH  
+  export PATH=/usr/local/Peridigm/bin:$PATH  
+  export LD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.9/:$LD_LIBRARY_PATH
+  export DYLD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.9/:$DYLD_LIBRARY_PATH
 fi
 
 #if [ "$OS" = "linux" ] ; then
