@@ -19,10 +19,15 @@ if [ "$(hostname)" == "shamu.coe.utsa.edu" ]; then
     export MODULEPATH=/share/apps/Modules/3.2.6/modulefiles
 fi
 if [ "$(hostname)" == "login4.ranger.tacc.utexas.edu" ]; then
+    module load python
+    module swap pgi intel/11.1
+    export PATH=~/projects/peridigm/intel/depends/trilinos-10.8.3/bin:$PATH
     export PATH=~/projects/peridigm/intel/depends/python-2.7.2/bin:$PATH
     export LD_LIBRARY_PATH=~/projects/peridigm/intel/depends/python-2.7.2/lib:$LD_LIBRARY_PATH
+    export LD_LIBRARY_PATH=~/projects/peridigm/intel/depends/netcdf-4.1.3/lib:$LD_LIBRARY_PATH
     export DYLD_LIBRARY_PATH=~/projects/peridigm/intel/depends/python-2.7.2/lib:$DYLD_LIBRARY_PATH
-    export PATH=~/projects/peridigm/intel/:$PATH
+    export DYLD_LIBRARY_PATH=~/projects/peridigm/intel/depends/netcdf-4.1.3/lib:$DYLD_LIBRARY_PATH
+    export PATH=~/projects/peridigm/intel/bin:$PATH
     export PATH=~/projects/emu2.6.42/bin:$PATH  
     export JOHN=/share/home/01809/jtfoster
     export DAVE_HOME=/share/home/01839/djlittl
