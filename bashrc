@@ -153,6 +153,7 @@ alias ...='cd .. ; cd ..'
 alias cdweb='cd ~/Documents/ME4603/Website'
 alias sshs='ssh -p 1209 -Y fes788@shamu.coe.utsa.edu'
 alias sshr='ssh -Y jtfoster@login4.ranger.tacc.utexas.edu'
+alias sshritz='ssh -Y john@10.3.12.40'
 cl() { cd $1; ls -la; } 
 
 # I got the following from, and mod'd it: http://www.macosxhints.com/article.php?story=20020716005123797
