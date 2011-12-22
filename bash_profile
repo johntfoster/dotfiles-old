@@ -9,9 +9,6 @@ export PLATFORM="$MACHINE-$OS-$OSVERSION"
 
 
 # Machine Specific Environment ------------------------------------
-if [ "$(hostname)" == "lagrange.local" ]; then
-    export PYTHONPATH="/usr/local/vtk/lib/python2.7/site-packages/"
-fi
 if [ "$(hostname)" == "shamu.coe.utsa.edu" ]; then
     export PATH=~/projects/python2.7/bin:$PATH  
     export PATH=~/projects/perl5.14.1/bin:$PATH  
@@ -44,6 +41,7 @@ if [ "$OS" = "darwin" ] ; then
   export PATH=/usr/local/Peridigm/bin:$PATH  
   export LD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.9/:$LD_LIBRARY_PATH
   export DYLD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.9/:$DYLD_LIBRARY_PATH
+  export PYTHONPATH="/usr/local/vtk/lib/python2.7/site-packages/"
 fi
 
 #if [ "$OS" = "linux" ] ; then
