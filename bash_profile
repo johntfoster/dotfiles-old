@@ -17,7 +17,7 @@ if [ "$(hostname)" == "shamu.coe.utsa.edu" ]; then
 fi
 if [ "$(hostname)" == "login4.ranger.tacc.utexas.edu" ]; then
     module load python
-    module swap pgi intel/11.1
+    #module swap pgi intel/11.1
     export PATH=~/projects/peridigm/intel/depends/trilinos-10.8.3/bin:$PATH
     export PATH=~/projects/peridigm/intel/depends/python-2.7.2/bin:$PATH
     export LD_LIBRARY_PATH=~/projects/peridigm/intel/depends/python-2.7.2/lib:$LD_LIBRARY_PATH
@@ -30,6 +30,14 @@ if [ "$(hostname)" == "login4.ranger.tacc.utexas.edu" ]; then
     export DAVE_HOME=/share/home/01839/djlittl
     export DAVE_WORK=/work/01839/djlittl
     export PATH=$JOHN/bin:$PATH
+
+    if [ "$PS1" != "" -a "${STARTED_SCREEEN:-x}" = x -a "${SSH_TTY:-x}" != x ]
+    then
+        STARTED_SCREEN=1; export STARTED_SCREEN
+        sleep 1
+        screen -RR && exit 0
+        echo "Screen failed! continuing with normal bash startup"
+    fi
 fi
 #if [ "$(hostname)" == "lagrange.local" ]; then
     #source /usr/local/share/dolfin/dolfin.conf

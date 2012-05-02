@@ -44,5 +44,6 @@ shell -$SHELL
 # Start a few default screens
 #
 screen -t "base" 0
-screen -t "ipython" 1 ipython
+screen -t "python" 1 python
 screen -t "scratch" 2
+screen -t "ranger" 3 ssh -Y jtfoster@login4.ranger.tacc.utexas.edu 
