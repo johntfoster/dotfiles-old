@@ -46,4 +46,3 @@ shell -$SHELL
 screen -t "base" 0
 screen -t "python" 1 python
 screen -t "scratch" 2
-screen -t "ranger" 3 ssh -Y jtfoster@login4.ranger.tacc.utexas.edu 
