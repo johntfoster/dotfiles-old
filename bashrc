@@ -150,6 +150,7 @@ fi
 # Navigation -------------------------------------------------------
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
+#alias gdb='ggdb'
 alias cdweb='cd ~/Documents/ME4603/Website'
 alias sshs='ssh -p 1209 -Y fes788@shamu.coe.utsa.edu'
 alias sshr='ssh -Y jtfoster@login4.ranger.tacc.utexas.edu'
@@ -284,7 +285,7 @@ killhard() {
 alias sshh="ssh -Y john@johnandlisa.homeip.net"
 alias showall="defaults write com.apple.finder AppleShowAllFiles TRUE"
 alias shownone="defaults write com.apple.finder AppleShowAllFiles FALSE"
-alias gnuplot="open -a AquaTerm && gnuplot"
+#alias gnuplot="open -a AquaTerm && gnuplot"
 
 # Bring in the other files ----------------------------------------------------
 #if [ $IS_INTERACTIVE = 'true' ] ; then

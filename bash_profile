@@ -31,18 +31,35 @@ if [ "$(hostname)" == "login4.ranger.tacc.utexas.edu" ]; then
     export DAVE_WORK=/work/01839/djlittl
     export PATH=$JOHN/bin:$PATH
 fi
+#if [ "$(hostname)" == "lagrange.local" ]; then
+    #source /usr/local/share/dolfin/dolfin.conf
+#fi
 
 # Path ------------------------------------------------------------
 if [ "$OS" = "darwin" ] ; then
   export PATH=/usr/local/bin:$PATH  
+  export PATH=/usr/local/emu/current/bin:$PATH  
   export PATH=/usr/local/mysql/bin:$PATH  
   export PATH=/opt/local/bin:/opt/local/sbin:$PATH  # OS-X Specific, with MacPorts and MySQL installed
   export PATH="/usr/texbin:$PATH"
   export PATH=/usr/local/trilinos/bin:$PATH  
   export PATH=/usr/local/Peridigm/bin:$PATH  
-  export LD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.9/:$LD_LIBRARY_PATH
-  export DYLD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.9/:$DYLD_LIBRARY_PATH
-  export PYTHONPATH="/usr/local/vtk/lib/python2.7/site-packages/"
+  export PATH=/usr/local/visit/bin:$PATH  
+  export PATH=$HOME/Projects/Python/spheregen:$PATH
+  export PATH=/usr/local/gnuplot/current/bin:$PATH
+  export PATH=/usr/local/openmpi/current/bin:$PATH
+  export PATH=/usr/local/sage:$PATH
+  export LD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.9:$LD_LIBRARY_PATH
+  export DYLD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.9:$DYLD_LIBRARY_PATH
+  export LD_LIBRARY_PATH=/usr/local/visit/current/darwin-x86_64/lib:$LD_LIBRARY_PATH
+  export DYLD_LIBRARY_PATH=/usr/local/visit/current/darwin-x86_64/lib:$DYLD_LIBRARY_PATH
+  export PYTHONPATH="/usr/local/vtk/lib/python2.7/site-packages:$PYTHONPATH"
+  export PYTHONPATH="/usr/local/visit/current/darwin-x86_64/lib:$PYHONPATH"
+  export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
+  export ACCESS=/usr/local
+  export TRILINOS_DIR=/usr/local/trilinos
+  export MPI_HOME=/opt/local/include/mpich2
+  export PETSC_DIR=/opt/local/lib/petsc
 fi
 
 #if [ "$OS" = "linux" ] ; then

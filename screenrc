@@ -38,3 +38,11 @@ startup_message off
 # Set messages timeout to one second:
 msgwait 1
 
+# Start a bash shell
+shell -$SHELL
+
+# Start a few default screens
+#
+screen -t "base" 0
+screen -t "ipython" 1 ipython
+screen -t "scratch" 2
