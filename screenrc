@@ -43,6 +43,10 @@ shell -$SHELL
 
 # Start a few default screens
 #
-screen -t "base" 0
+screen -t "home" 0
 screen -t "python" 1 python
-screen -t "scratch" 2
+chdir /Users/john/Projects
+screen -t "projects" 2 
+chdir /Users/john
+
+select 0
