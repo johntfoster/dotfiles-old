@@ -47,19 +47,18 @@ if [ "$OS" = "darwin" ] ; then
   export PATH=/usr/local/visit/bin:$PATH  
   export PATH=$HOME/Projects/Python/spheregen:$PATH
   export PATH=/usr/local/gnuplot/current/bin:$PATH
-  export PATH=/usr/local/openmpi/current/bin:$PATH
   export PATH=/usr/local/sage:$PATH
-  export LD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.9:$LD_LIBRARY_PATH
-  export DYLD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.9:$DYLD_LIBRARY_PATH
-  export LD_LIBRARY_PATH=/usr/local/visit/current/darwin-x86_64/lib:$LD_LIBRARY_PATH
-  export DYLD_LIBRARY_PATH=/usr/local/visit/current/darwin-x86_64/lib:$DYLD_LIBRARY_PATH
+  export LD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.8:$LD_LIBRARY_PATH
+  export DYLD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.8:$DYLD_LIBRARY_PATH
+  export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:$DYLD_FRAMEWORK_PATH
+  #export LD_LIBRARY_PATH=/usr/local/visit/current/darwin-x86_64/lib:$LD_LIBRARY_PATH
+  #export DYLD_LIBRARY_PATH=/usr/local/visit/current/darwin-x86_64/lib:$DYLD_LIBRARY_PATH
   export PYTHONPATH="/usr/local/vtk/lib/python2.7/site-packages:$PYTHONPATH"
-  export PYTHONPATH="/usr/local/visit/current/darwin-x86_64/lib:$PYHONPATH"
-  export PYTHONPATH="/usr/local/lib/python2.7/site-packages:$PYTHONPATH"
-  export ACCESS=/usr/local
+  #export PYTHONPATH="/usr/local/visit/current/darwin-x86_64/lib:$PYHONPATH"
+  #export ACCESS=/usr/local
   export TRILINOS_DIR=/usr/local/trilinos
   export MPI_HOME=/opt/local/include/mpich2
-  export PETSC_DIR=/opt/local/lib/petsc
+  #export PETSC_DIR=/opt/local/lib/petsc
 fi
 
 #if [ "$OS" = "linux" ] ; then
@@ -96,3 +95,12 @@ echo -ne "Server time is: "; date
 # in this order:
 #     bashrc
 #     .bashrc
+
+##
+# Your previous /Users/john/.bash_profile file was backed up as /Users/john/.bash_profile.macports-saved_2012-05-04_at_15:36:11
+##
+
+# MacPorts Installer addition on 2012-05-04_at_15:36:11: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
