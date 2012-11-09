@@ -39,14 +39,14 @@ startup_message off
 msgwait 1
 
 # Start a bash shell
-shell -$SHELL
+shell -/bin/bash
 
 # Start a few default screens
 #
-screen -t "home" 0
-screen -t "python" 1 python
+screen -t "home" 0 /bin/bash
+screen -t "python" 1 ipython
 chdir /Users/john/Projects
-screen -t "projects" 2 
+screen -t "projects" 2 /bin/bash
 chdir /Users/john
 
 bind j focus down

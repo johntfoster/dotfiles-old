@@ -10,9 +10,6 @@ else
   export IS_REMOTE=true
 fi
 
-# Vim-like command line
-set -o vi
-
 # Colors ----------------------------------------------------------
 export TERM=xterm-color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
@@ -69,9 +66,9 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
   bind "set bell-style none" # no bell
 
   # Use vi command mode
-  #bind "set editing-mode vi"
-  #set -o vi
-  #bind -m vi-command -r 'v'
+  bind "set editing-mode vi"
+  set -o vi
+  bind -m vi-command -r 'v'
 
   shopt -s checkwinsize # After each command, checks the windows size and changes lines and columns
 
@@ -85,8 +82,8 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
   if [ -f /etc/bash_completion ]; then
       . /etc/bash_completion
   fi
-  if [ -f /opt/local/etc/bash_completion ]; then
-    . /opt/local/etc/bash_completion
+  if [ -f /usr/local/etc/bash_completion ]; then
+    . /usr/local/etc/bash_completion
   fi
   if [ -f ~/etc/bash_completion ]; then
     . ~/etc/bash_completion
@@ -97,7 +94,14 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
 
   # git completion
   #source ~/cl/bin/git-completion.bash
-
+  if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
+      . `brew --prefix`/etc/bash_completion.d/git-completion.bash
+  fi
+  
+  # brew completion
+  if [ -f `brew --prefix`/Library/Contributions/brew_bash_completion.sh ]; then
+      . `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+  fi
   # Add completion to source and .
   complete -F _command source 
   complete -F _command .
@@ -151,11 +155,10 @@ fi
 # Navigation -------------------------------------------------------
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
-#alias gdb='ggdb'
-alias cdweb='cd ~/Documents/ME4603/Website'
 alias sshs='ssh -p 1209 -Y fes788@shamu.coe.utsa.edu'
 alias sshr='ssh -Y jtfoster@login4.ranger.tacc.utexas.edu'
-alias sshritz='ssh -Y john@10.3.12.40'
+alias py='ipython --pylab'
+alias pyq='ipython qtconsole --pylab=inline --colors=linux'
 cl() { cd $1; ls -la; } 
 
 # I got the following from, and mod'd it: http://www.macosxhints.com/article.php?story=20020716005123797
@@ -177,11 +180,9 @@ shopt -s cdable_vars # set the bash option so that no '$' is required when using
 
 
 # Editors ----------------------------------------------------------
-#export EDITOR='mate -w'  # OS-X SPECIFIC - TextMate, w is to wait for TextMate window to close
-#export EDITOR='gedit'  #Linux/gnome
 export EDITOR='vim'  #Command line
 export GIT_EDITOR='vim'
-alias mvim='/Applications/MacPorts/MacVim.app/Contents/MacOS/vim -g'
+alias mvim='/Applications/MacVim.app/Contents/MacOS/vim -g'
 
 if [ "$OS" = "darwin" ] ; then
   alias v=mvim
@@ -218,8 +219,6 @@ track_traffic(){
   sudo ngrep -W byline -qld en0 "$1" 
 }
 
-
-
 # Other aliases ----------------------------------------------------
 alias ll='ls -hl'
 alias la='ls -a'
@@ -245,8 +244,6 @@ else
   }
 fi
 
-
-
 # Misc
 alias reloadbash='source ~/.bash_profile'
 
@@ -258,13 +255,9 @@ alias df='df -h' # Show disk usage
 
 if [ "$OS" = "linux" ] ; then
   alias processes_all='ps -AFH'
-else
-  alias processes_all='ps -Afjv'
-fi
-
-if [ "$OS" = "linux" ] ; then
   alias systail='tail -f /var/log/syslog'
 else
+  alias processes_all='ps -Afjv'
   alias systail='tail -f /var/log/system.log'
 fi
 
@@ -282,11 +275,11 @@ killhard() {
 }
 
 
-
 alias sshh="ssh -Y john@johnandlisa.homeip.net"
 alias showall="defaults write com.apple.finder AppleShowAllFiles TRUE"
 alias shownone="defaults write com.apple.finder AppleShowAllFiles FALSE"
-#alias gnuplot="open -a AquaTerm && gnuplot"
+alias pp="emugr && popx11 popplt"
+alias ph="time_history && hisplt i=emu.hisin && popx11 pophis"
 
 # Bring in the other files ----------------------------------------------------
 #if [ $IS_INTERACTIVE = 'true' ] ; then

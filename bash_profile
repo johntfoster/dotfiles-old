@@ -1,4 +1,4 @@
-# See following for more information: http://www.infinitered.com/blog/?p=10
+# See following for more information: https://github.com/johntfoster/dotfiles 
 
 # Identify OS and Machine -----------------------------------------
 export OS=`uname -s | sed -e 's/  */-/g;y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdefghijklmnopqrstuvwxyz/'`
@@ -7,14 +7,34 @@ export MACHINE=`uname -m | sed -e 's/  */-/g;y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdef
 export PLATFORM="$MACHINE-$OS-$OSVERSION"
 # Note, default OS is assumed to be OSX
 
+# OS Specific Environment ------------------------------------------------------------
+if [ "$OS" = "darwin" ] ; then
+  export PATH=/usr/local/bin:/usr/local/sbin:$PATH  
+  export PATH=/usr/local/share/python:$PATH  
+  export PATH=/usr/local/screen/bin:$PATH  
+  export PATH=/usr/local/emu/current/bin:$PATH  
+  export PATH=/usr/local/mysql/bin:$PATH  
+  export PATH="/usr/texbin:$PATH"
+  export PATH=/usr/local/trilinos/bin:$PATH  
+  export PATH=/usr/local/Peridigm/bin:$PATH  
+  #export PATH=$HOME/Projects/Python/spheregen:$PATH
+  export LD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.8:$LD_LIBRARY_PATH
+  export DYLD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.8:/usr/local/lib$DYLD_LIBRARY_PATH
+  export TRILINOS_DIR=/usr/local/trilinos
+  export BYOBU_PREFIX=$(brew --prefix)
+fi
 
-# Machine Specific Environment ------------------------------------
+#if [ "$OS" = "linux" ] ; then
+#fi
+
+# Machine Specific Environments ------------------------------------
 if [ "$(hostname)" == "shamu.coe.utsa.edu" ]; then
-    export PATH=~/projects/python2.7/bin:$PATH  
-    export PATH=~/projects/perl5.14.1/bin:$PATH  
-    export PATH=~/projects/ruby1.9.2/bin:$PATH  
+    #export PATH=~/projects/python2.7/bin:$PATH  
+    #export PATH=~/projects/perl5.14.1/bin:$PATH  
+    #export PATH=~/projects/ruby1.9.2/bin:$PATH  
     export MODULEPATH=/share/apps/Modules/3.2.6/modulefiles
 fi
+
 if [ "$(hostname)" == "login4.ranger.tacc.utexas.edu" ]; then
     #module load python
     #module swap pgi intel/11.1
@@ -31,44 +51,10 @@ if [ "$(hostname)" == "login4.ranger.tacc.utexas.edu" ]; then
     export DAVE_WORK=/work/01839/djlittl
     export PATH=$JOHN/bin:$PATH
 fi
-#if [ "$(hostname)" == "lagrange.local" ]; then
-    #source /usr/local/share/dolfin/dolfin.conf
-#fi
-
-# Path ------------------------------------------------------------
-if [ "$OS" = "darwin" ] ; then
-  export PATH=/usr/local/bin:$PATH  
-  export PATH=/usr/local/emu/current/bin:$PATH  
-  export PATH=/usr/local/mysql/bin:$PATH  
-  export PATH=/opt/local/bin:/opt/local/sbin:$PATH  # OS-X Specific, with MacPorts and MySQL installed
-  export PATH="/usr/texbin:$PATH"
-  export PATH=/usr/local/trilinos/bin:$PATH  
-  export PATH=/usr/local/Peridigm/bin:$PATH  
-  export PATH=/usr/local/visit/bin:$PATH  
-  export PATH=$HOME/Projects/Python/spheregen:$PATH
-  export PATH=/usr/local/gnuplot/current/bin:$PATH
-  export PATH=/usr/local/sage:$PATH
-  export LD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.8:$LD_LIBRARY_PATH
-  export DYLD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.8:$DYLD_LIBRARY_PATH
-  export DYLD_FRAMEWORK_PATH=/opt/local/Library/Frameworks:$DYLD_FRAMEWORK_PATH
-  #export LD_LIBRARY_PATH=/usr/local/visit/current/darwin-x86_64/lib:$LD_LIBRARY_PATH
-  #export DYLD_LIBRARY_PATH=/usr/local/visit/current/darwin-x86_64/lib:$DYLD_LIBRARY_PATH
-  export PYTHONPATH="/usr/local/vtk/lib/python2.7/site-packages:$PYTHONPATH"
-  #export PYTHONPATH="/usr/local/visit/current/darwin-x86_64/lib:$PYHONPATH"
-  #export ACCESS=/usr/local
-  export TRILINOS_DIR=/usr/local/trilinos
-  export MPI_HOME=/opt/local/include/mpich2
-  #export PETSC_DIR=/opt/local/lib/petsc
-fi
-
-#if [ "$OS" = "linux" ] ; then
-#fi
 
 if [ -d ~/bin ]; then
 	export PATH=~/bin:$PATH  # add your bin folder to the path, if you have it.  It's a good place to add all your scripts
 fi
-
-
 
 # Load in .bashrc -------------------------------------------------
 source ~/.bashrc
@@ -78,7 +64,6 @@ echo -e "Kernel Information: " `uname -smr`
 echo -e "`bash --version`"
 echo -ne "Uptime: "; uptime
 echo -ne "Server time is: "; date
-
 
 
 # Notes: ----------------------------------------------------------
@@ -95,12 +80,3 @@ echo -ne "Server time is: "; date
 # in this order:
 #     bashrc
 #     .bashrc
-
-##
-# Your previous /Users/john/.bash_profile file was backed up as /Users/john/.bash_profile.macports-saved_2012-05-04_at_15:36:11
-##
-
-# MacPorts Installer addition on 2012-05-04_at_15:36:11: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
