@@ -10,50 +10,28 @@ export PLATFORM="$MACHINE-$OS-$OSVERSION"
 # OS Specific Environment ------------------------------------------------------------
 if [ "$OS" = "darwin" ] ; then
   export PATH=/usr/local/bin:/usr/local/sbin:$PATH  
-  export PATH=/usr/local/share/python:$PATH  
   export PATH=/usr/local/screen/bin:$PATH  
   export PATH=/usr/local/emu/current/bin:$PATH  
-  export PATH=/usr/local/mysql/bin:$PATH  
   export PATH="/usr/texbin:$PATH"
-  export PATH=/usr/local/trilinos/bin:$PATH  
   export PATH=/usr/local/Peridigm/bin:$PATH  
-  #export PATH=$HOME/Projects/Python/spheregen:$PATH
-  export LD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.8:$LD_LIBRARY_PATH
-  export DYLD_LIBRARY_PATH=/usr/local/vtk/lib/vtk-5.8:/usr/local/lib$DYLD_LIBRARY_PATH
+  export PATH=/usr/local/dakota/bin:$PATH  
+  export PYTRILINOS_DIR=/usr/local/pytrilinos
   export TRILINOS_DIR=/usr/local/trilinos
+  export PATH=$TRILINOS_DIR/bin:$PATH  
   export BYOBU_PREFIX=$(brew --prefix)
+  source /usr/local/share/python/virtualenvwrapper.sh
+  source /usr/local/opt/autoenv/activate.sh
 fi
 
-#if [ "$OS" = "linux" ] ; then
-#fi
 
 # Machine Specific Environments ------------------------------------
 if [ "$(hostname)" == "shamu.coe.utsa.edu" ]; then
-    #export PATH=~/projects/python2.7/bin:$PATH  
-    #export PATH=~/projects/perl5.14.1/bin:$PATH  
-    #export PATH=~/projects/ruby1.9.2/bin:$PATH  
     export MODULEPATH=/share/apps/Modules/3.2.6/modulefiles
 fi
 
-if [ "$(hostname)" == "login4.ranger.tacc.utexas.edu" ]; then
-    #module load python
-    #module swap pgi intel/11.1
-    export PATH=~/projects/peridigm/intel/depends/trilinos-10.8.3/bin:$PATH
-    export PATH=~/projects/peridigm/intel/depends/python-2.7.2/bin:$PATH
-    export LD_LIBRARY_PATH=~/projects/peridigm/intel/depends/python-2.7.2/lib:$LD_LIBRARY_PATH
-    export LD_LIBRARY_PATH=~/projects/peridigm/intel/depends/netcdf-4.1.3/lib:$LD_LIBRARY_PATH
-    export DYLD_LIBRARY_PATH=~/projects/peridigm/intel/depends/python-2.7.2/lib:$DYLD_LIBRARY_PATH
-    export DYLD_LIBRARY_PATH=~/projects/peridigm/intel/depends/netcdf-4.1.3/lib:$DYLD_LIBRARY_PATH
-    export PATH=~/projects/peridigm/intel/bin:$PATH
-    export PATH=~/projects/emu2.6.42/bin:$PATH  
-    export JOHN=/share/home/01809/jtfoster
-    export DAVE_HOME=/share/home/01839/djlittl
-    export DAVE_WORK=/work/01839/djlittl
-    export PATH=$JOHN/bin:$PATH
-fi
-
+# add your bin folder to the path, if you have it.  It's a good place to add all your scripts
 if [ -d ~/bin ]; then
-	export PATH=~/bin:$PATH  # add your bin folder to the path, if you have it.  It's a good place to add all your scripts
+	export PATH=~/bin:$PATH  
 fi
 
 # Load in .bashrc -------------------------------------------------

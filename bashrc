@@ -23,6 +23,7 @@ else
   alias ls='ls -G'  # OS-X SPECIFIC - the -G command in OS-X is for colors, in Linux it's no groups
 fi
 
+
 # Setup some colors to use later in interactive shell or scripts
 export COLOR_NC='\033[0m' # No Color
 export COLOR_WHITE='\033[1;37m'
@@ -78,7 +79,7 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
 
   # Turn on advanced bash completion if the file exists 
   # Get it here: http://www.caliban.org/bash/index.shtml#completion) or 
-  # on OSX: sudo port install bash-completion
+  # on OSX: brew install bash-completion
   if [ -f /etc/bash_completion ]; then
       . /etc/bash_completion
   fi
@@ -87,9 +88,6 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
   fi
   if [ -f ~/etc/bash_completion ]; then
     . ~/etc/bash_completion
-  fi
-  if [ -f $JOHN/etc/bash_completion ]; then
-    . $JOHN/etc/bash_completion
   fi
 
   # git completion
@@ -114,11 +112,20 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
   #}
 
   prompt_func() {
+      # Get Virtual Env
+      if [[ $VIRTUAL_ENV != "" ]]; then
+      # Strip out the path and just leave the env name
+         VENV="${COLOR_RED}(${VIRTUAL_ENV##*/})"
+      else
+      # In case you don't have one activated
+         VENV=''
+      fi
+
       previous_return_value=$?;
       if [ $IS_REMOTE = 'true' ] ; then
-        prompt="\[\033]0;${USER} ${PWD}\007\]\[${COLOR_PURPLE}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_NC}\] "
+        prompt="${VENV} \033]0;${PWD}\007\[${COLOR_PURPLE}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_NC}\] "
       else
-        prompt="\[\033]0;${USER} ${PWD}\007\]\[${COLOR_GREEN}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_NC}\] "
+        prompt="${VENV} \033]0;${PWD}\007\[${COLOR_GREEN}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_NC}\] "
       fi
       #prompt="\033]0;${PWD}\007\[${COLOR_GREEN}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_NC}\] "
       #prompt="\[${COLOR_GREEN}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_YELLOW}\]$(git_dirty_flag)\[${COLOR_NC}\] "
@@ -156,9 +163,12 @@ fi
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
 alias sshs='ssh -p 1209 -Y fes788@shamu.coe.utsa.edu'
-alias sshr='ssh -Y jtfoster@login4.ranger.tacc.utexas.edu'
-alias py='ipython --pylab'
-alias pyq='ipython qtconsole --pylab=inline --colors=linux'
+alias sshst='ssh -Y jtfoster@login4.stampede.tacc.utexas.edu'
+alias ip='ipython --pylab'
+alias ipq='ipython qtconsole --pylab=inline --colors=linux'
+alias ipn='ipython notebook --pylab inline'
+alias ipsandia='ssh -L localhost:8888:localhost:8888 jtfoste@srngate.sandia.gov'
+alias cdcv="cd ~/Documents/LaTeX/CV"
 cl() { cd $1; ls -la; } 
 
 # I got the following from, and mod'd it: http://www.macosxhints.com/article.php?story=20020716005123797
@@ -266,6 +276,7 @@ alias profileme="history | awk '{print \$2}' | awk 'BEGIN{FS=\"|\"}{print \$1}' 
 
 alias untar="tar xvzf"
 
+
 alias cp_folder="cp -Rpv" #copies folder and all sub files and folders, preserving security and dates
 
 alias mirror_website="wget -m -x -p --convert-links --no-host-directories --no-cache -erobots=off"
@@ -278,8 +289,7 @@ killhard() {
 alias sshh="ssh -Y john@johnandlisa.homeip.net"
 alias showall="defaults write com.apple.finder AppleShowAllFiles TRUE"
 alias shownone="defaults write com.apple.finder AppleShowAllFiles FALSE"
-alias pp="emugr && popx11 popplt"
-alias ph="time_history && hisplt i=emu.hisin && popx11 pophis"
+alias tarPeridigm="tar cjvf Peridigm.tar.bz2 --exclude=./.svn* --exclude=./build --exclude=./*/.svn* Peridigm"
 
 # Bring in the other files ----------------------------------------------------
 #if [ $IS_INTERACTIVE = 'true' ] ; then

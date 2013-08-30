@@ -1,4 +1,3 @@
-# Created by John Anderson < sontek@gmail.com >
 ##    Explanation of hardstatus line    ##
 
 # Note the embeded space after the colon, I feel
@@ -41,20 +40,12 @@ msgwait 1
 # Start a bash shell
 shell -/bin/bash
 
-# Start a few default screens
-#
-screen -t "home" 0 /bin/bash
-screen -t "python" 1 ipython
-chdir /Users/john/Projects
-screen -t "projects" 2 /bin/bash
-chdir /Users/john
+# Increase the scrollback buffer
+defscrollback 5000
 
 bind j focus down
 bind k focus up
 bind h focus left
 bind l focus right
-
-# Increase the scrollback buffer
-defscrollback 5000
 
 select 0
