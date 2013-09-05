@@ -115,7 +115,7 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
       # Get Virtual Env
       if [[ $VIRTUAL_ENV != "" ]]; then
       # Strip out the path and just leave the env name
-         VENV="${COLOR_RED}(${VIRTUAL_ENV##*/})"
+         VENV="\[${COLOR_RED}\](${VIRTUAL_ENV##*/})"
       else
       # In case you don't have one activated
          VENV=''
@@ -123,12 +123,10 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
 
       previous_return_value=$?;
       if [ $IS_REMOTE = 'true' ] ; then
-        prompt="${VENV} \033]0;${PWD}\007\[${COLOR_PURPLE}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_NC}\] "
+        prompt="${VENV}\[\033]0;${USER} ${PWD}\007\]\[${COLOR_PURPLE}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_NC}\] "
       else
-        prompt="${VENV} \033]0;${PWD}\007\[${COLOR_GREEN}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_NC}\] "
+        prompt="${VENV}\[\033]0;${USER} ${PWD}\007\]\[${COLOR_GREEN}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_NC}\] "
       fi
-      #prompt="\033]0;${PWD}\007\[${COLOR_GREEN}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_NC}\] "
-      #prompt="\[${COLOR_GREEN}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_YELLOW}\]$(git_dirty_flag)\[${COLOR_NC}\] "
 
       if test $previous_return_value -eq 0
       then
