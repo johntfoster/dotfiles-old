@@ -311,3 +311,4 @@ fi
 #elif
 #else
 #fi
+alias cubit="/Applications/Cubit-13.0/cubit.command -nojournal -nographics -batch"

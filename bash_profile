@@ -11,16 +11,13 @@ export PLATFORM="$MACHINE-$OS-$OSVERSION"
 if [ "$OS" = "darwin" ] ; then
   export PATH=/usr/local/bin:/usr/local/sbin:$PATH  
   export PATH=/usr/local/screen/bin:$PATH  
-  export PATH=/usr/local/emu/current/bin:$PATH  
-  export PATH="/usr/texbin:$PATH"
-  export PATH=/usr/local/Peridigm/bin:$PATH  
-  export PATH=/usr/local/dakota/bin:$PATH  
-  export PYTRILINOS_DIR=/usr/local/pytrilinos
-  export TRILINOS_DIR=/usr/local/trilinos
-  export PATH=$TRILINOS_DIR/bin:$PATH  
+  export PATH=/usr/texbin:$PATH
   export BYOBU_PREFIX=$(brew --prefix)
+  export MODULEPATH=/usr/local/modules/Modules/3.2.10/modulefiles
   source /usr/local/share/python/virtualenvwrapper.sh
   source /usr/local/opt/autoenv/activate.sh
+  #
+  module() { eval `$MODULEPATH/../bin/modulecmd bash $*`; }
 fi
 
 
