@@ -16,6 +16,7 @@ if [ "$OS" = "darwin" ] ; then
   export MODULEPATH=/usr/local/modules/Modules/3.2.10/modulefiles
   source /usr/local/share/python/virtualenvwrapper.sh
   source /usr/local/opt/autoenv/activate.sh
+  source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
   #
   module() { eval `$MODULEPATH/../bin/modulecmd bash $*`; }
 fi
@@ -24,6 +25,7 @@ fi
 # Machine Specific Environments ------------------------------------
 if [ "$(hostname)" == "shamu.coe.utsa.edu" ]; then
     export MODULEPATH=/share/apps/Modules/3.2.6/modulefiles
+    module() { eval `$MODULEPATH/../bin/modulecmd bash $*`; }
 fi
 
 # add your bin folder to the path, if you have it.  It's a good place to add all your scripts

@@ -11,9 +11,11 @@ else
 fi
 
 # Colors ----------------------------------------------------------
-export TERM=xterm-color
+export TERM=xterm-256color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1 
+export LC_ALL=en_US.utf8
+export LANG=en_US.utf8
 
 if [ "$OS" = "linux" ] ; then
   alias ls='ls --color=auto' # For linux, etc
@@ -111,31 +113,31 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
     #git status 2> /dev/null | grep -c : | awk '{if ($1 > 0) print "⚡"}'
   #}
 
-  prompt_func() {
-      # Get Virtual Env
-      if [[ $VIRTUAL_ENV != "" ]]; then
-      # Strip out the path and just leave the env name
-         VENV="\[${COLOR_RED}\](${VIRTUAL_ENV##*/})"
-      else
-      # In case you don't have one activated
-         VENV=''
-      fi
-
-      previous_return_value=$?;
-      if [ $IS_REMOTE = 'true' ] ; then
-        prompt="${VENV}\[\033]0;${USER} ${PWD}\007\]\[${COLOR_PURPLE}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_NC}\] "
-      else
-        prompt="${VENV}\[\033]0;${USER} ${PWD}\007\]\[${COLOR_GREEN}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_NC}\] "
-      fi
-
-      if test $previous_return_value -eq 0
-      then
-          PS1="${prompt}> "
-      else
-          PS1="${prompt}\[${COLOR_RED}\]> \[${COLOR_NC}\]"
-      fi
-  }
-  PROMPT_COMMAND=prompt_func
+#  prompt_func() {
+#      # Get Virtual Env
+#      if [[ $VIRTUAL_ENV != "" ]]; then
+#      # Strip out the path and just leave the env name
+#         VENV="\[${COLOR_RED}\](${VIRTUAL_ENV##*/})"
+#      else
+#      # In case you don't have one activated
+#         VENV=''
+#      fi
+#
+#      previous_return_value=$?;
+#      if [ $IS_REMOTE = 'true' ] ; then
+#        prompt="${VENV}\[\033]0;${USER} ${PWD}\007\]\[${COLOR_PURPLE}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_NC}\] "
+#      else
+#        prompt="${VENV}\[\033]0;${USER} ${PWD}\007\]\[${COLOR_GREEN}\]\w\[${COLOR_GRAY}\]$(__git_ps1)\[${COLOR_NC}\] "
+#      fi
+#
+#      if test $previous_return_value -eq 0
+#      then
+#          PS1="${prompt}> "
+#      else
+#          PS1="${prompt}\[${COLOR_RED}\]> \[${COLOR_NC}\]"
+#      fi
+#  }
+#  PROMPT_COMMAND=prompt_func
 
   # export PS1="\[${COLOR_GREEN}\]\w\[${COLOR_NC}\] > "  # Primary prompt with only a path
   # export PS1="\[${COLOR_RED}\]\w > \[${COLOR_NC}\]"  # Primary prompt with only a path, for root, need condition to use this for root
@@ -144,14 +146,14 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
   # weird wrapping errors occur on some systems, so this method is superior
   #export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/} ${USER}@${HOSTNAME%%.*}"; echo -ne "\007"'  # user@host path
 
-  export PS2='> '    # Secondary prompt
-  export PS3='#? '   # Prompt 3
-  export PS4='+'     # Prompt 4
-
-  function xtitle {  # change the title of your xterm* window
-    unset PROMPT_COMMAND
-    echo -ne "\033]0;$1\007" 
-  }
+#  export PS2='> '    # Secondary prompt
+#  export PS3='#? '   # Prompt 3
+#  export PS4='+'     # Prompt 4
+#
+#  function xtitle {  # change the title of your xterm* window
+#    unset PROMPT_COMMAND
+#    echo -ne "\033]0;$1\007" 
+#  }
 
 fi
 
