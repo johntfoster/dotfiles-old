@@ -26,6 +26,7 @@ fi
 if [ "$(hostname)" == "shamu.coe.utsa.edu" ]; then
     export MODULEPATH=/share/apps/Modules/3.2.6/modulefiles
     module() { eval `$MODULEPATH/../bin/modulecmd bash $*`; }
+    module load python
 fi
 
 # add your bin folder to the path, if you have it.  It's a good place to add all your scripts

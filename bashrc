@@ -94,14 +94,16 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
 
   # git completion
   #source ~/cl/bin/git-completion.bash
-  if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
-      . `brew --prefix`/etc/bash_completion.d/git-completion.bash
+  if [ $OS == 'darwin' ]; then
+      if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
+          . `brew --prefix`/etc/bash_completion.d/git-completion.bash
+      fi
+      if [ -f `brew --prefix`/Library/Contributions/brew_bash_completion.sh ]; then
+          . `brew --prefix`/Library/Contributions/brew_bash_completion.sh
+      fi
   fi
   
   # brew completion
-  if [ -f `brew --prefix`/Library/Contributions/brew_bash_completion.sh ]; then
-      . `brew --prefix`/Library/Contributions/brew_bash_completion.sh
-  fi
   # Add completion to source and .
   complete -F _command source 
   complete -F _command .
