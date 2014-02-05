@@ -7,6 +7,11 @@ export MACHINE=`uname -m | sed -e 's/  */-/g;y/ABCDEFGHIJKLMNOPQRSTUVWXYZ/abcdef
 export PLATFORM="$MACHINE-$OS-$OSVERSION"
 # Note, default OS is assumed to be OSX
 
+# add your bin folder to the path, if you have it.  It's a good place to add all your scripts
+if [ -d ~/bin ]; then
+	export PATH=~/bin:$PATH  
+fi
+
 # OS Specific Environment ------------------------------------------------------------
 if [ "$OS" = "darwin" ] ; then
   export PATH=/usr/local/bin:/usr/local/sbin:$PATH  
@@ -21,18 +26,17 @@ if [ "$OS" = "darwin" ] ; then
   module() { eval `$MODULEPATH/../bin/modulecmd bash $*`; }
 fi
 
-
 # Machine Specific Environments ------------------------------------
 if [ "$(hostname)" == "shamu.coe.utsa.edu" ]; then
     export MODULEPATH=/share/apps/Modules/3.2.6/modulefiles
     module() { eval `$MODULEPATH/../bin/modulecmd bash $*`; }
     module load python
+    module load git
+    export PATH=$HOME/projects/vim/bin:$PATH
+    source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
+  #
 fi
 
-# add your bin folder to the path, if you have it.  It's a good place to add all your scripts
-if [ -d ~/bin ]; then
-	export PATH=~/bin:$PATH  
-fi
 
 # Load in .bashrc -------------------------------------------------
 source ~/.bashrc
