@@ -14,6 +14,7 @@ fi
 
 # OS Specific Environment ------------------------------------------------------------
 if [ "$OS" = "darwin" ] ; then
+  export PATH=$HOME/bin:$PATH
   export PATH=/usr/local/bin:/usr/local/sbin:$PATH  
   export PATH=/usr/local/screen/bin:$PATH  
   export PATH=/usr/texbin:$PATH
@@ -24,6 +25,7 @@ if [ "$OS" = "darwin" ] ; then
   source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
   #
   module() { eval `$MODULEPATH/../bin/modulecmd bash $*`; }
+  export HOMEBREW_GITHUB_API_TOKEN=4a856b15b6245d9b7b996e39eb547d583167b0c0
 fi
 
 # Machine Specific Environments ------------------------------------
@@ -32,6 +34,7 @@ if [ "$(hostname)" == "shamu.coe.utsa.edu" ]; then
     module() { eval `$MODULEPATH/../bin/modulecmd bash $*`; }
     module load python
     module load git
+    module load tmux
     export PATH=$HOME/projects/vim/bin:$PATH
     source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
   #

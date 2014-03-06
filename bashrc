@@ -14,8 +14,6 @@ fi
 export TERM=xterm-256color
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1 
-export LC_ALL=en_US.utf8
-export LANG=en_US.utf8
 
 if [ "$OS" = "linux" ] ; then
   alias ls='ls --color=auto' # For linux, etc
@@ -316,3 +314,5 @@ fi
 #else
 #fi
 alias cubit="/Applications/Cubit-13.0/cubit.command -nojournal -nographics -batch"
+alias mkpdf="latexmk -pvc -pdf"
+alias mkps="latexmk -pvc -pdfps -view=pdf"
