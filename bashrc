@@ -316,3 +316,4 @@ fi
 alias cubit="/Applications/Cubit-13.0/cubit.command -nojournal -nographics -batch"
 alias mkpdf="latexmk -pvc -pdf"
 alias mkps="latexmk -pvc -pdfps -view=pdf"
+alias mkcl="latexmk -CA"
