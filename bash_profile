@@ -14,6 +14,7 @@ fi
 
 # OS Specific Environment ------------------------------------------------------------
 if [ "$OS" = "darwin" ] ; then
+  export DOCKER_HOST=tcp://127.0.0.1:2375
   export PATH=$HOME/bin:$PATH
   export PATH=/usr/local/bin:/usr/local/sbin:$PATH  
   export PATH=/usr/local/screen/bin:$PATH  

@@ -317,3 +317,7 @@ alias cubit="/Applications/Cubit-13.0/cubit.command -nojournal -nographics -batc
 alias mkpdf="latexmk -pvc -pdf"
 alias mkps="latexmk -pvc -pdfps -view=pdf"
 alias mkcl="latexmk -CA"
+alias blog="cd $HOME/projects/blog"
+alias post="cd $HOME/projects/blog/content/posts"
+alias updateblog="blog && workon blog && pelican content -o output -s pelicanconf.py && ghp-import output && git push origin gh-pages"
+alias inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape -D -z"
