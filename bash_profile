@@ -29,7 +29,7 @@ if [ "$OS" == "darwin" ] ; then
   export HOMEBREW_GITHUB_API_TOKEN=4a856b15b6245d9b7b996e39eb547d583167b0c0
 fi
 #
-if [ "$OS" = "linux" ] ; then
+if [ "$OS" == "linux" ] ; then
   source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
 fi
 
