@@ -1,4 +1,4 @@
-if [[ $- == *i* ]] ; then
+if [[ "$-" == "*i*" ]] ; then
   export IS_INTERACTIVE=true
 else
   export IS_INTERACTIVE=false
