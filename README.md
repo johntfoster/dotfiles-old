@@ -8,4 +8,5 @@ Create symlinks:
     ln -s ~/.dotfiles/bash_profile ~/.bash_profile
     ln -s ~/.dotfiles/bashrc ~/.bashrc
     ln -s ~/.dotfiles/screenrc ~/.screenrc
+    ln -s ~/.dotfiles/screenrc ~/.tmux.conf
 ````
