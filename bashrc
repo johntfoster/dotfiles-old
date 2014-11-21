@@ -1,4 +1,4 @@
-if [[ "$-" == "*i*" ]] ; then
+if [[ "$-" == *i* ]] ; then
   export IS_INTERACTIVE=true
 else
   export IS_INTERACTIVE=false
@@ -91,7 +91,6 @@ if [ $IS_INTERACTIVE = 'true' ] ; then # Interactive shell only
   fi
 
   # git completion
-  #source ~/cl/bin/git-completion.bash
   if [ $OS == 'darwin' ]; then
       if [ -f `brew --prefix`/etc/bash_completion.d/git-completion.bash ]; then
           . `brew --prefix`/etc/bash_completion.d/git-completion.bash
@@ -169,6 +168,7 @@ alias ipq='ipython qtconsole --pylab=inline --colors=linux'
 alias ipn='ipython notebook --pylab inline'
 alias ipsandia='ssh -L localhost:8888:localhost:8888 jtfoste@srngate.sandia.gov'
 alias cdcv="cd ~/Documents/LaTeX/CV"
+alias cdbib="cd ~/Documents/LaTeX/include"
 cl() { cd $1; ls -la; } 
 
 # I got the following from, and mod'd it: http://www.macosxhints.com/article.php?story=20020716005123797
@@ -319,5 +319,8 @@ alias mkps="latexmk -pvc -pdfps -view=pdf"
 alias mkcl="latexmk -CA"
 alias blog="cd $HOME/projects/blog"
 alias post="cd $HOME/projects/blog/content/posts"
-alias updateblog="blog && workon blog && pelican content -o output -s pelicanconf.py && ghp-import output && git push origin gh-pages"
 alias inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape -D -z"
+alias julia="/Applications/Julia-0.3.1.app/Contents/Resources/julia/bin/julia"
+
+# added by travis gem
+[ -f /Users/fes788/.travis/travis.sh ] && source /Users/fes788/.travis/travis.sh
