@@ -21,8 +21,7 @@ if [ "$OS" == "darwin" ] ; then
   export PATH=/usr/texbin:$PATH
   export BYOBU_PREFIX=$(brew --prefix)
   export MODULEPATH=/usr/local/modules/Modules/3.2.10/modulefiles
-  source /usr/local/share/python/virtualenvwrapper.sh
-  source /usr/local/opt/autoenv/activate.sh
+  source /usr/local/bin/virtualenvwrapper.sh
   source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
   #
   module() { eval `$MODULEPATH/../bin/modulecmd bash $*`; }

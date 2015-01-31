@@ -1,51 +1,127 @@
-##    Explanation of hardstatus line    ##
+# $Id: screen-keys.conf,v 1.7 2010-07-31 11:39:13 nicm Exp $
+#
+# By Nicholas Marriott. Public domain.
+#
+# This configuration file binds many of the common GNU screen key bindings to
+# appropriate tmux key bindings. Note that for some key bindings there is no
+# tmux analogue and also that this set omits binding some commands available in
+# tmux but not in screen.
+#
+# Note this is only a selection of key bindings and they are in addition to the
+# normal tmux key bindings. This is intended as an example not as to be used
+# as-is.
 
-# Note the embeded space after the colon, I feel
-#  it just looks nicer with a blank between the
-#  text and console edge:
-#   '%{=b}%{G} Screens: '
+# Fix pasteboard issues in OS X Mavericks
+set-option -g default-command "reattach-to-user-namespace -l bash"
 
-# This prints the window listing in blue:
-#   '%{b}%w'
+# Set the prefix to ^A.
+unbind C-b
+set -g prefix ^A
+bind a send-prefix
 
-# This right-aligns what follows:
-#   '%='
+# Bind appropriate commands similar to screen.
+# lockscreen ^X x 
+unbind ^X
+bind ^X lock-server
 
-# This displays the time (hours and minutes) in 12hr format
-# and adds an AM/PM flag, in bold green:
-#   '%{G}%C%A'
+# screen ^C c 
+unbind ^C
+bind ^C new-window
+unbind c
+bind c new-window
 
-# This displays the day of the week:
-#   '%D'
+# detach ^D d
+unbind ^D
+bind ^D detach
 
-#This displays the date in Mon/day/year format:
-# and again I embeded a space to give me one space
-# between the text and console edge:
-#  '%M/%d/%Y '
+# displays * 
+unbind *
+bind * list-clients
 
-# The resultsing command give you a status line that
-#  looks like this:
-#   | Screens: 0* bash  <blanks zapped>         5:30PM  Fri, Jun/25/2004 |
-#  (The pipes indicate the edges of the xterm/console).
+# next ^@ ^N sp n 
+unbind ^@
+bind ^@ next-window
+unbind ^N
+bind ^N next-window
+unbind " "
+bind " " next-window
+unbind n
+bind n next-window
 
-# Green text, time, and date; windows in blue:
-hardstatus alwayslastline "%{=b}%{G} Screen(s): %{b}%w %=%{kG}%C%A  %D, %M/%d/%Y "
+# title A
+unbind A
+bind A command-prompt "rename-window %%"
 
-# Turn off start message:
-startup_message off
+# other ^A
+unbind ^A
+bind ^A last-window
 
-# Set messages timeout to one second:
-msgwait 1
+# prev ^H ^P p ^? 
+unbind ^H
+bind ^H previous-window
+unbind ^P
+bind ^P previous-window
+unbind p
+bind p previous-window
+unbind BSpace
+bind BSpace previous-window
 
-# Start a bash shell
-shell -/bin/bash
+# windows ^W w 
+unbind ^W
+bind ^W list-windows
+unbind w
+bind w list-windows
 
-# Increase the scrollback buffer
-defscrollback 5000
+# quit \ 
+unbind '\'
+bind '\' confirm-before "kill-server"
 
-bind j focus down
-bind k focus up
-bind h focus left
-bind l focus right
+# kill K k 
+unbind K
+bind K confirm-before "kill-window"
+unbind k
+bind k confirm-before "kill-window"
 
-select 0
+# redisplay ^L l 
+unbind ^L
+bind ^L refresh-client
+unbind l
+bind l refresh-client
+
+# split -v |
+unbind S
+bind S split-window -v -c "#{pane_current_path}"
+unbind |
+bind | split-window -h -c "#{pane_current_path}"
+
+# :kB: focus up
+unbind Tab
+bind Tab select-pane -t:.+
+unbind BTab
+bind BTab select-pane -t:.-
+
+# " windowlist -b
+unbind '"'
+bind '"' choose-window
+
+# powerline
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/tmux/powerline.conf
+
+#Use vim keybindings in copy mode
+setw -g mode-keys vi
+
+# Setup 'v' to begin selection as in Vim
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+# Update default binding of `Enter` to also use copy-pipe
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+# smart pane switching with awareness of vim splits
+bind -n C-h run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-h) || tmux select-pane -L"
+bind -n C-j run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-j) || tmux select-pane -D"
+bind -n C-k run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-k) || tmux select-pane -U"
+bind -n C-l run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys C-l) || tmux select-pane -R"
+bind -n C-\ run "(tmux display-message -p '#{pane_current_command}' | grep -iq vim && tmux send-keys 'C-\\') || tmux select-pane -l"
+
