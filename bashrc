@@ -319,8 +319,8 @@ alias mkps="latexmk -pvc -pdfps -view=pdf"
 alias mkcl="latexmk -CA"
 alias blog="cd $HOME/projects/blog"
 alias post="cd $HOME/projects/blog/content/posts"
+alias cdl="cd $HOME/Documents/LaTeX"
 #alias inkscape="/Applications/Inkscape.app/Contents/Resources/bin/inkscape -D -z"
-alias julia="/Applications/Julia-0.3.1.app/Contents/Resources/julia/bin/julia"
 
 # added by travis gem
 [ -f /Users/fes788/.travis/travis.sh ] && source /Users/fes788/.travis/travis.sh
