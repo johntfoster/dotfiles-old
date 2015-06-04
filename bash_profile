@@ -24,10 +24,12 @@ if [ "$OS" == "darwin" ] ; then
   source /usr/local/bin/virtualenvwrapper.sh
   source /usr/local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
   #
-  module() { eval `$MODULEPATH/../bin/modulecmd bash $*`; }
   export HOMEBREW_GITHUB_API_TOKEN=4a856b15b6245d9b7b996e39eb547d583167b0c0
   export PATH=$HOME/.cabal/bin:$PATH
   [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+  module() { eval `$MODULEPATH/../bin/modulecmd bash $*`; }
+  #export DYLD_LIBRARY_PATH=/usr/local/trilinos/lib:$DYLD_LIBRARY_PATH
+  export PATH=/Applications/MATLAB_R2015a.app/bin:$PATH
 fi
 #
 if [ "$OS" == "linux" ] ; then

@@ -163,9 +163,10 @@ alias ..='cd ..'
 alias ...='cd .. ; cd ..'
 alias sshs='ssh -p 1209 -Y fes788@shamu.coe.utsa.edu'
 alias sshst='ssh -Y jtfoster@login4.stampede.tacc.utexas.edu'
-alias ip='ipython --pylab'
-alias ipq='ipython qtconsole --pylab=inline --colors=linux'
-alias ipn='ipython notebook --pylab inline'
+alias ip='ipython'
+alias ipq='ipython qtconsole --colors=linux'
+alias ipn='ipython notebook'
+alias python='ipython'
 alias ipsandia='ssh -L localhost:8888:localhost:8888 jtfoste@srngate.sandia.gov'
 alias cdcv="cd ~/Documents/LaTeX/CV"
 alias cdbib="cd ~/Documents/LaTeX/include"
