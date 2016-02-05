@@ -31,6 +31,7 @@ if [ "$OS" == "darwin" ] ; then
   #module() { eval `$MODULEPATH/../bin/modulecmd bash $*`; }
   #export DYLD_LIBRARY_PATH=/usr/local/trilinos/lib:$DYLD_LIBRARY_PATH
   export PATH=/Applications/MATLAB_R2015a.app/bin:$PATH
+  export PATH=$HOME/miniconda3/bin:$PATH
 fi
 #
 if [ "$OS" == "linux" ] ; then
@@ -74,3 +75,4 @@ echo -ne "Server time is: "; date
 # in this order:
 #     bashrc
 #     .bashrc
+
