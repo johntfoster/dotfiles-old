@@ -325,3 +325,6 @@ alias cdl="cd $HOME/Documents/LaTeX"
 
 # added by travis gem
 [ -f /Users/fes788/.travis/travis.sh ] && source /Users/fes788/.travis/travis.sh
+
+# added by travis gem
+[ -f /Users/john/.travis/travis.sh ] && source /Users/john/.travis/travis.sh

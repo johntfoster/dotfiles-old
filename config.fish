@@ -7,10 +7,12 @@ set tacklebox_theme entropy
 source ~/.tacklebox/tacklebox.fish
 source ~/.tackle/functions/conda.fish
 
-set fish_function_path $fish_function_path "/Users/john/miniconda3/lib/python2.7/site-packages/powerline/bindings/fish"
+set fish_function_path $fish_function_path "/usr/local/lib/python2.7/site-packages/powerline/bindings/fish"
 powerline-setup
 
-set PATH /usr/local/texlive/2015/bin/x86_64-darwin $PATH
-set PATH $HOME/miniconda3/bin $PATH
-set -x MATLAB_EXECUTABLE /Applications/MATLAB_R2015a.app/bin/matlab
+set PATH /usr/local/bin $PATH
+set PATH /usr/local/texlive/2016/bin/x86_64-darwin $PATH
+set -x MATLAB_EXECUTABLE /Applications/MATLAB_R2015b.app/bin/matlab
 set -x EDITOR vim
+#set -x DOCKER_HOST tcp://127.0.0.1:2375
+
