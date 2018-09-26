@@ -1,3 +1,7 @@
+if [ -f /etc/bashrc ]; then
+    source /etc/bashrc
+fi
+
 if [[ "$-" == *i* ]] ; then
   export IS_INTERACTIVE=true
 else

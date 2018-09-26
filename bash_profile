@@ -34,21 +34,6 @@ if [ "$OS" == "darwin" ] ; then
   export PATH=$HOME/miniconda3/bin:$PATH
 fi
 #
-if [ "$OS" == "linux" ] ; then
-  source /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
-fi
-
-# Machine Specific Environments ------------------------------------
-if [ "$(hostname)" == "shamu.coe.utsa.edu" ]; then
-    export MODULEPATH=/share/apps/Modules/3.2.6/modulefiles
-    module() { eval `$MODULEPATH/../bin/modulecmd bash $*`; }
-    module load python
-    module load git
-    module load tmux
-    export PATH=$HOME/projects/vim/bin:$PATH
-    source ~/.local/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-  #
-fi
 
 
 # Load in .bashrc -------------------------------------------------
