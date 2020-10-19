@@ -1,0 +1,53 @@
+# some sane vim-like keybindings
+bind index,pager k previous-entry
+bind index,pager j next-entry
+bind index,pager g noop
+bind index,pager \Cu half-up
+bind index,pager \Cd half-down
+bind pager gg top
+bind index gg first-entry
+bind pager G bottom
+bind index G last-entry
+
+
+
+# Sidebar Navigation
+bind index,pager <down> sidebar-next
+bind index,pager <up> sidebar-prev
+bind index,pager <right> sidebar-open
+
+# index and pager shortcuts
+bind index,pager @ compose-to-sender
+bind index,pager R group-reply
+bind index <tab> sync-mailbox
+bind index <space> collapse-thread
+
+# Save all attachments
+macro index,pager S "<pipe-message>ripmime -i - -d ~/Downloads && rm ~/Downloads/textfile*" "Save all non-text attachments using ripmime"
+# opening urls with urlscan
+macro index,pager \cb "<pipe-message>urlscan<enter>" "call urlscan to extract URLs out of a message"
+# Sync all email
+macro index,pager O "<shell-escape>mbsync -a<enter>" "run mbsync to sync all mail"
+
+# View attachments properly.
+bind attach <return> view-mailcap
+
+# Drafts
+bind compose P postpone-message
+bind index p recall-message
+
+# finding stuff
+bind editor <tab> complete-query
+bind editor ^T complete
+macro index F "<shell-escape>mu find --clearlinks --format=links --linksdir=~/.mu/results " "mu find"
+macro index \cf "<change-folder-readonly>~/.mu/results<enter>" "mu find results"
+
+macro compose m \
+"<enter-command>set pipe_decode<enter>\
+<pipe-message>pandoc -f markdown -t plain -o /tmp/msg.txt<enter>\
+<pipe-message>pandoc -s -f markdown-blank_before_blockquote -t HTML5 --katex -o /tmp/msg.html --resource-path ~/.dotfiles/office/mutt/templates --template email -H email.css<enter>\
+<enter-command>unset pipe_decode<enter>\
+<attach-file>/tmp/msg.txt<enter>\
+<attach-file>/tmp/msg.html<enter>\
+<tag-entry><previous-entry><tag-entry><group-alternatives><previous-entry><detach-file>" \
+"Convert markdown to HTML5 and plaintext alternative content types"

@@ -1,0 +1,212 @@
+#################################
+######## Account gmail ########
+#################################
+IMAPAccount gmail 
+Host imap.gmail.com
+User johntfosterjr@gmail.com 
+PassCmd "security find-internet-password -s 'imap.gmail.com' -a 'johntfosterjr@gmail.com' -w"
+SSLType IMAPS
+SSLVersions TLSv1.2
+SystemCertificates yes 
+AuthMechs PLAIN
+
+# Remote storage
+IMAPStore gmail-remote
+Account gmail 
+
+# Local storage
+MaildirStore gmail-local
+Path ~/Mail/gmail/
+Inbox ~/Mail/gmail/inbox
+
+Channel gmail-inbox
+Master :gmail-remote:"INBOX"
+Slave :gmail-local:inbox
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-archive
+Master :gmail-remote:"[Gmail]/All Mail"
+Slave :gmail-local:archive
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-drafts
+Master :gmail-remote:"[Gmail]/Drafts"
+Slave :gmail-local:drafts
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-sent
+Master :gmail-remote:"[Gmail]/Sent Mail"
+Slave :gmail-local:sent
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-trash
+Master :gmail-remote:"[Gmail]/Trash"
+Slave :gmail-local:trash
+Create Both
+Expunge Both
+SyncState *
+
+Channel gmail-junk
+Master :gmail-remote:"[Gmail]/Spam"
+Slave :gmail-local:junk
+Create Both
+Expunge Both
+SyncState *
+
+Group gmail
+Channel gmail-inbox
+Channel gmail-archive
+Channel gmail-drafts
+Channel gmail-sent
+Channel gmail-trash
+Channel gmail-junk
+
+#################################
+######## Account utmail ########
+#################################
+IMAPAccount utmail 
+Host imap.gmail.com
+User john.foster@utexas.edu
+PassCmd "security find-internet-password -s 'imap.gmail.com' -a 'john.foster@utexas.edu' -w"
+SSLType IMAPS
+SSLVersions TLSv1.2
+SystemCertificates yes 
+AuthMechs PLAIN
+
+# Remote storage
+IMAPStore utmail-remote
+Account utmail 
+
+# Local storage
+MaildirStore utmail-local
+Path ~/Mail/utmail/
+Inbox ~/Mail/utmail/inbox
+
+Channel utmail-inbox
+Master :utmail-remote:"INBOX"
+Slave :utmail-local:inbox
+Create Both
+Expunge Both
+SyncState *
+
+Channel utmail-archive
+Master :utmail-remote:"[Gmail]/All Mail"
+Slave :utmail-local:archive
+Create Both
+Expunge Both
+SyncState *
+
+Channel utmail-drafts
+Master :utmail-remote:"[Gmail]/Drafts"
+Slave :utmail-local:drafts
+Create Both
+Expunge Both
+SyncState *
+
+Channel utmail-sent
+Master :utmail-remote:"[Gmail]/Sent Mail"
+Slave :utmail-local:sent
+Create Both
+Expunge Both
+SyncState *
+
+Channel utmail-trash
+Master :utmail-remote:"[Gmail]/Trash"
+Slave :utmail-local:trash
+Create Both
+Expunge Both
+SyncState *
+
+Channel utmail-junk
+Master :utmail-remote:"[Gmail]/Spam"
+Slave :utmail-local:junk
+Create Both
+Expunge Both
+SyncState *
+
+Group utmail
+Channel utmail-inbox
+Channel utmail-archive
+Channel utmail-drafts
+Channel utmail-sent
+Channel utmail-trash
+Channel utmail-junk
+
+#################################
+######## Account daytum ########
+#################################
+IMAPAccount daytum 
+Host outlook.office365.com
+User john@daytum.io
+PassCmd "security find-internet-password -s 'https://outlook.office365.com' -a 'john@daytum.io' -w"
+SSLType IMAPS
+SSLVersions TLSv1.2
+SystemCertificates yes 
+AuthMechs PLAIN
+
+# Remote storage
+IMAPStore daytum-remote
+Account daytum 
+
+# Local storage
+MaildirStore daytum-local
+Path ~/Mail/daytum/
+Inbox ~/Mail/daytum/inbox
+
+Channel daytum-inbox
+Master :daytum-remote:"Inbox"
+Slave :daytum-local:inbox
+Create Both
+Expunge Both
+SyncState *
+
+Channel daytum-archive
+Master :daytum-remote:"Archive"
+Slave :daytum-local:archive
+Create Both
+Expunge Both
+SyncState *
+
+Channel daytum-drafts
+Master :daytum-remote:"Drafts"
+Slave :daytum-local:drafts
+Create Both
+Expunge Both
+SyncState *
+
+Channel daytum-sent
+Master :daytum-remote:"Sent Items"
+Slave :daytum-local:sent
+Create Both
+Expunge Both
+SyncState *
+
+Channel daytum-trash
+Master :daytum-remote:"Deleted Items"
+Slave :daytum-local:trash
+Create Both
+Expunge Both
+SyncState *
+
+Channel daytum-junk
+Master :daytum-remote:"Junk Email"
+Slave :daytum-local:junk
+Create Both
+Expunge Both
+SyncState *
+
+Group daytum
+Channel daytum-inbox
+Channel daytum-archive
+Channel daytum-drafts
+Channel daytum-sent
+Channel daytum-trash
+Channel daytum-junk

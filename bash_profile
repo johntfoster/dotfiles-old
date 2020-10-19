@@ -61,3 +61,36 @@ echo -ne "Server time is: "; date
 #     bashrc
 #     .bashrc
 
+# added by Anaconda3 2019.03 installer
+# >>> conda init >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$(CONDA_REPORT_ERRORS=false '/Applications/anaconda3/bin/conda' shell.bash hook 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    \eval "$__conda_setup"
+else
+    if [ -f "/Applications/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Applications/anaconda3/etc/profile.d/conda.sh"
+        CONDA_CHANGEPS1=false conda activate base
+    else
+        \export PATH="/Applications/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda init <<<
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba init' !!
+export MAMBA_EXE="/Users/john/Desktop/assignment7/./micromamba";
+export MAMBA_ROOT_PREFIX="/Users/john/micromamba";
+__mamba_setup="$('/Users/john/Desktop/assignment7/./micromamba' shell hook --shell bash --prefix '/Users/john/micromamba' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__mamba_setup"
+else
+    if [ -f "/Users/john/micromamba/etc/profile.d/mamba.sh" ]; then
+        . "/Users/john/micromamba/etc/profile.d/mamba.sh"
+    else
+        export PATH="/Users/john/micromamba/bin:$PATH"
+    fi
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<

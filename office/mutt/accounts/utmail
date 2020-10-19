@@ -1,0 +1,36 @@
+set from = "john.foster@utexas.edu"
+set sendmail = "/usr/local/bin/msmtp -a utmail"
+
+# Set folders
+set spoolfile = "+utmail/INBOX"
+set mbox = "+utmail/archive"
+set postponed = "+utmail/drafts"
+set record = "+utmail/sent"
+set trash = "+utmail/trash"
+
+# Alternate email addresses.
+alternates ^johntfosterjr@gmail.com$ ^jfoster@austin.utexas.edu$
+
+# custom signaure
+set signature = ~/.dotfiles/office/mutt/signatures/work
+
+color status red default
+
+macro index o "<shell-escape>mbsync utmail<enter>" "run mbsync to sync mail for this account"
+
+macro index,pager s \
+  "<enter-command>set my_old_resolve=\$resolve noresolve<enter>\
+  <tag-prefix><clear-flag>n<enter-command>set resolve=\$my_old_resolve<enter>\
+  <save-message>+utmail/junk<enter>" \
+  "mark as read and move to junk folder"
+
+macro index,pager a \
+  "<save-message>+utmail/archive<enter>"  \
+  "move message to the archive"
+
+macro index,pager i \
+  "<save-message>+utmail/INBOX<enter>"  \
+  "move message to the inbox"
+
+macro index,pager gi "<change-folder>=utmail/INBOX<enter>" "Go to inbox"
+macro index,pager ga "<change-folder>=utmail/archive<enter>" "Go to archive"

@@ -318,6 +318,7 @@ fi
 #elif
 #else
 #fi
+alias julia="/Applications/Julia-1.4.app/Contents/Resources/julia/bin/julia"
 alias cubit="/Applications/Cubit-13.0/cubit.command -nojournal -nographics -batch"
 alias mkpdf="latexmk -pvc -pdf"
 alias mkps="latexmk -pvc -pdfps -view=pdf"
@@ -332,3 +333,5 @@ alias cdl="cd $HOME/Documents/LaTeX"
 
 # added by travis gem
 [ -f /Users/john/.travis/travis.sh ] && source /Users/john/.travis/travis.sh
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

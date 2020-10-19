@@ -1,0 +1,37 @@
+set from = "john@daytum.io"
+set sendmail = "/usr/local/bin/msmtp -a gmail"
+
+# Set folders
+set spoolfile = "+daytum/Inbox"
+set mbox = "+daytum/archive"
+set postponed = "+daytum/drafts"
+set record = "+daytum/sent"
+set trash = "+daytum/trash"
+
+
+# Alternate email addresses.
+alternates ^johntfosterjr@gmail.com$ ^john.foster@utexas.edu$ ^jfoster@austin.utexas.edu$
+
+# custom signaure
+set signature = ~/.dotfiles/office/mutt/signatures/daytum
+
+color status cyan default
+
+macro index o "<shell-escape>mbsync daytum<enter>" "run mbsync to sync mail for this account"
+
+macro index,pager s \
+  "<enter-command>set my_old_resolve=\$resolve noresolve<enter>\
+  <tag-prefix><clear-flag>n<enter-command>set resolve=\$my_old_resolve<enter>\
+  <save-message>+daytum/junk<enter>" \
+  "mark as read and move to junk folder"
+
+macro index,pager a \
+  "<save-message>+daytum/archive<enter>"  \
+  "move message to the archive"
+
+macro index,pager i \
+  "<save-message>+daytum/Inbox<enter>"  \
+  "move message to the inbox"
+
+macro index,pager gi "<change-folder>=daytum/INBOX<enter>" "Go to inbox"
+macro index,pager ga "<change-folder>=daytum/archive<enter>" "Go to archive"
