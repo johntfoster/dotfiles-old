@@ -33,4 +33,5 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 echo "omf install bobthefish" | fish
 echo "omf theme bobthefish" | fish
 
-fish 
+sudo apt update -y
+sudo apt install -y tmux
