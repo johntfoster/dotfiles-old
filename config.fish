@@ -3,7 +3,6 @@ set -g theme_color_scheme zenburn
 
 set -x BAZEAN_POSTGRES_USERNAME student01
 set -x BAZEAN_POSTGRES_PASSWORD Iphi8koh
-set -x GOOGLE_API_KEY 'AIzaSyAHHKRhnkIgNNV8JqZEi5XKo_-vFhsHoVI'
 set -x EDITOR 'nvim'
 set -x NVIM_LISTEN_ADDRESS '/tmp/nvimsocket'
 
