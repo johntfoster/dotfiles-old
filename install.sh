@@ -27,5 +27,5 @@ cd $FONT_DIR
 
 #Install OMF
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
-omf install bobthefish | fish
-omf theme bobthefish | fish
+echo "omf install bobthefish" | fish
+echo "omf theme bobthefish" | fish
