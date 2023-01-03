@@ -4,6 +4,7 @@ create_symlinks() {
     # Get the directory in which this script lives.
     script_dir=$(dirname "$(readlink -f "$0")")
 
+    mkdir -p $script_dir/.config/fish
     ln -s $script_dir/bash_profile ~/.bash_profile
     ln -s $script_dir/bashrc ~/.bashrc
     ln -s $script_dir/tmux.conf ~/.tmux.conf
@@ -20,8 +21,7 @@ echo "Initializing conda for fish."
 conda init fish
 conda install mamba -c conda-forge -y
 $CONDA_DIR/bin/pip install powerline-status
-export CONDA_BASE_SITE_PACKAGES=`($CONDA_DIR/bin/python -c 'import site; print(site.getsitepackages()[0])')`
-`
+export CONDA_BASE_SITE_PACKAGES=`$CONDA_DIR/bin/python -c 'import site; print(site.getsitepackages()[0])'`
 
 echo "Installing fonts."
 FONT_DIR="$HOME/.fonts"
