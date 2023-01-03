@@ -6,7 +6,6 @@ create_symlinks() {
 
     ln -s $script_dir/bash_profile ~/.bash_profile
     ln -s $script_dir/bashrc ~/.bashrc
-    ln -s $script_dir/screenrc ~/.screenrc
     ln -s $script_dir/tmux.conf ~/.tmux.conf
     ln -s $script_dir/config.fish ~/.config/fish/config.fish
     ln -s $script_dir/office/mbsyncrc ~/.mbsyncrc
@@ -25,3 +24,8 @@ FONT_DIR="$HOME/.fonts"
 git clone https://github.com/powerline/fonts.git $FONT_DIR --depth=1
 cd $FONT_DIR
 ./install.sh
+
+#Install OMF
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+omf install bobthefish | fish
+omf theme bobthefish | fish
