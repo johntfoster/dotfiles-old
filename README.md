@@ -17,3 +17,12 @@ Create symlinks:
     ln -s ~/.dotfiles/office/msmtprc ~/.msmtprc
     ln -s ~/.dotfiles/office/mutt/muttrc ~/.muttrc
 ```
+
+Or run:
+
+```
+    ./install.sh
+```
+
+from the repo directory.
+```
