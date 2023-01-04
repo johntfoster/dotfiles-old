@@ -4,7 +4,8 @@ create_symlinks() {
     # Get the directory in which this script lives.
     script_dir=$(dirname "$(readlink -f "$0")")
 
-    mkdir -p $script_dir/.config/fish
+    rm -rf ~/.bashrc
+    mkdir -p $HOME/.config/fish
     ln -s $script_dir/bash_profile ~/.bash_profile
     ln -s $script_dir/bashrc ~/.bashrc
     ln -s $script_dir/tmux.conf ~/.tmux.conf

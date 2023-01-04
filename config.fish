@@ -16,6 +16,8 @@ if status is-interactive
         exec tmux
 end
 
+set -x CONDA_BASE_SITEPACKAGES (python -c 'import site; print(site.getsitepackages()[0])')
+
 # Set default input/output
 #pactl set-default-source alsa_input.usb-Blue_Microphones_Yeti_Stereo_Microphone_LT_19120208352462900017_111000-00.analog-stereo
 #pactl set-default-sink alsa_output.pci-0000_00_1f.3.hdmi-stereo
