@@ -22,7 +22,6 @@ echo "Initializing conda for fish."
 conda init fish
 conda install mamba -c conda-forge -y
 $CONDA_DIR/bin/pip install powerline-status
-export CONDA_BASE_SITE_PACKAGES=`$CONDA_DIR/bin/python -c 'import site; print(site.getsitepackages()[0])'`
 
 echo "Installing fonts."
 FONT_DIR="$HOME/.fonts"
