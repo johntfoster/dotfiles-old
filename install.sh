@@ -36,3 +36,4 @@ echo "omf theme bobthefish" | fish
 
 sudo apt update -y
 sudo apt install -y tmux
+chsh -s $(which fish)
