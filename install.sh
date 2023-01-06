@@ -19,7 +19,7 @@ sudo apt-get update && export DEBIAN_FRONTEND=noninteractive \
 
 echo "Initializing conda for fish."
 conda init fish
-$CONDA_DIR/bin/pip install powerline-status
+pip install powerline-status
 
 echo "Installing fonts."
 FONT_DIR="$HOME/.fonts"
