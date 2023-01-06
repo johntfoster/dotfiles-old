@@ -15,7 +15,7 @@ create_symlinks() {
 create_symlinks
 
 sudo apt-get update && export DEBIAN_FRONTEND=noninteractive \
-     && apt-get -y install --no-install-recommends fish tmux
+     && sudo apt-get -y install --no-install-recommends fish tmux
 
 echo "Initializing conda for fish."
 conda init fish
