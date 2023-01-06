@@ -10,15 +10,17 @@ create_symlinks() {
     ln -s $script_dir/bashrc ~/.bashrc
     ln -s $script_dir/tmux.conf ~/.tmux.conf
     ln -s $script_dir/config.fish ~/.config/fish/config.fish
+    ln -s $script_dir/office/mbsyncrc ~/.mbsyncrc
+    ln -s $script_dir/office/mutt/mime.types ~/.mime.types
+    ln -s $script_dir/office/msmtprc ~/.msmtprc
+    ln -s $script_dir/office/mutt/muttrc ~/.muttrc
 }
 
 create_symlinks
 
-sudo apt-get update && export DEBIAN_FRONTEND=noninteractive \
-     && apt-get -y install --no-install-recommends fish tmux
-
 echo "Initializing conda for fish."
 conda init fish
+conda install mamba -c conda-forge -y
 $CONDA_DIR/bin/pip install powerline-status
 
 echo "Installing fonts."
@@ -31,3 +33,6 @@ cd $FONT_DIR
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 echo "omf install bobthefish" | fish
 echo "omf theme bobthefish" | fish
+
+sudo apt update -y
+sudo apt install -y tmux
